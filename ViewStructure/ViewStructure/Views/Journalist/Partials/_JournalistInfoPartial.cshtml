@@ -1,0 +1,29 @@
+﻿@model Journalist
+
+@{ 
+
+    string pic = "/images/" + Model.Gender + ".png";
+
+
+    bool hasFooter = (bool)ViewData["hasFooter"];
+
+
+
+}
+
+<div class="card m-3" style="min-width:18rem; max-width:18rem;">
+    <div class="card-header">
+        @Model.Name
+    </div>
+    <img src="@pic" class="card-img-top" />
+
+    @if (hasFooter)
+        {
+            <div class="card-footer">
+                <a asp-action="DeleteJournalist" asp-controller="journalist" class="btn btn-danger" asp-route-id="@Model.JournalistId">Sil</a>
+            </div>
+        }
+    
+
+
+</div>
